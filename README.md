@@ -33,6 +33,12 @@ Go to Desktop and open a terminal.
 
 For the execution of your own code, we head to the Project Workspace. For this setup, catkin_ws is the name of the active workspace. If your workspace name is different, change the commands accordingly.
 
+Install ROS Navigation system.
+```bash
+  sudo apt-get update
+  sudo apt-get install ros-kinetic-navigation
+```
+
 If you do not have an active workspace, you can create one. You can launch it by running the following commands first.
 ```bash
   cd /home/workspace/
@@ -52,12 +58,22 @@ Clone the required repositories to the ~/catkin_ws/src folder. Note that this re
 * This repository contains the turtlebot_navigation package which is a turtlebot dependency.
 * This will give you some room to tweak navigation and some SLAM behaviors.
 
+Add required ROS packages as git submodules.
 ```bash
-cd ~/catkin_ws/src
-rosdep -i install gmapping -y
-rosdep -i install turtlebot_teleop -y
-rosdep -i install turtlebot_rviz_launchers -y
-rosdep -i install turtlebot_gazebo -y
+  cd ~/catkin_ws/src
+  git submodule add https://github.com/ros-perception/slam_gmapping.git
+  git submodule add https://github.com/turtlebot/turtlebot.git
+  git submodule add https://github.com/turtlebot/turtlebot_interactions.git
+  git submodule add https://github.com/turtlebot/turtlebot_simulator.git
+```
+
+Install ROS packages dependancies.
+```bash
+  cd ~/catkin_ws/src
+  sudo rosdep -i install gmapping -y
+  sudo rosdep -i install turtlebot_teleop -y
+  sudo rosdep -i install turtlebot_rviz_launchers -y
+  sudo rosdep -i install turtlebot_gazebo -y
 ```
 
 Once copied everything, it's important to give permissions, reading and/or execution to the files necessary for the proper functioning.
@@ -67,6 +83,55 @@ Build the project:
   cd /home/workspace/catkin_ws
   catkin_make
   source devel/setup.bash
+```
+
+#### Catkin Workspace Structure
+Should look something like this:
+```
+catkin_ws/src
+    |-- add_markers
+        |-- src
+        |-- ...
+    |-- misc_images
+        |-- ...
+    |-- pick_objects
+        |-- src
+        |-- ...
+    |-- RvizConfig
+        |-- ...
+    |-- ShellScripts
+        |-- ...
+    |-- slam_gmapping
+        |-- gmapping
+        |-- slam_gmapping
+        |-- ...
+    |-- turtlebot
+        |-- turtlebot
+        |-- turtlebot_bringup
+        |-- turtlebot_capabilities
+        |-- turtlebot_description
+        |-- turtlebot_teleop
+        |-- ...
+    |-- turtlebot_apps
+        |-- turtlebot_navigation
+        |-- ...
+    |-- turtlebot_interactions
+        |-- turtlebot_dashboard
+        |-- turtlebot_interactions
+        |-- turtlebot_interactive_markers
+        |-- turtlebot_rviz_launchers
+        |-- ...
+    |-- turtlebot_simulator
+        |-- turtlebot_gazebo
+        |-- turtlebot_simulator
+        |-- turtlebot_stage
+        |-- turtlebot_stdr
+        |-- ...
+    |-- wall_follower
+        |-- src
+        |-- ...
+    |-- World
+        |-- ...
 ```
 
 
@@ -81,10 +146,10 @@ The summary of the files and folders within repo is provided in the table below:
 | RvizConfig/*             | Folder that contains all the customized rviz configuration files.                                            |
 | ShellScripts/*           | Folder that contains all the shell scripts.                                                                  |
 | slam_gmapping/*          | Folder that contains all the files that perform SLAM and build a map of the environment with a robot equipped with laser range finder sensors or RGB-D cameras. |
-| turtlebot/*              | Folders that contains all the that manually control a robot using keyboard commands, load a preconfigured    |
-| turtlebot_apps/*         | rviz workspace. You’ll save a lot of time by launching this file, because it will automatically load the     |
-| turtlebot_interactions/* | robot model, trajectories, and map for you and deploy a turtlebot in a gazebo environment by linking the     |
-| turtlebot_simulator/*    | world file to it.                                                                                            |
+| turtlebot/*              | Folder that contain the keyboard_teleop.launch file that you can manually control a robot using keyboard commands. the keyboard_teleop.launch file that you can manually control a robot using keyboard commands. |
+| turtlebot_apps/*         | Folder that contain the turtlebot_navigation package which is a turtlebot dependency.                        |
+| turtlebot_interactions/* | Folder that contain the view_navigation.launch file that you can load a preconfigured rviz workspace. It will automatically load the robot model, trajectories, and map for you. |
+| turtlebot_simulator/*    | Folder that contain the turtlebot_world.launch file that you can deploy a turtlebot in a gazebo environment by linking the world file to it. |
 | wall_follower/*          | Folder that contains all the wall_follower node that will autonomously drive your robot around to perform SLAM. |
 | World/*                  | Folder that contains all the gazebo world file and the map generated from SLAM.                              |
 | misc_images/*            | Folder containing the images of the project.                                                                 |
@@ -92,6 +157,7 @@ The summary of the files and folders within repo is provided in the table below:
 | CMakeLists.txt           | Contains the System dependencies that are found with CMake's conventions.                                    |
 | README.md                | Contains the project documentation.                                                                          |
 | README.pdf               | Contains the project documentation in PDF format.                                                            |
+
 
 ---
 
@@ -109,7 +175,7 @@ The summary of the files and folders within repo is provided in the table below:
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-## Execution of the different shellscripts
+## Execution of the different shellscripts.
 
 For run **launch.sh** open a terminal:
 
@@ -129,6 +195,15 @@ For create **my world** open a terminal:
   cd /home/workspace/catkin_ws/src/World
   gazebo MyWorld.world
 ```
+
+Design your environment.
+
+* Open a terminal and launch Gazebo.
+* Click Edit and launch `Building Editor`.
+* Design a simple environment.
+* Apply textures or color.
+* Save the building editor environment and go back to Gazebo.
+* Save the Gazebo environment to the `World` directory under your `~/catkin_ws/src`.
 
 ![alt text][image3]
 
@@ -204,36 +279,3 @@ For run the project **home_service.sh** open a terminal:
 
 ![alt text][image15]
 ![alt text][image16]
-
-
-#### Catkin Workspace Structure
-Should look something like this:
-
-```
-catkin_ws/src
-    |-- slam_gmapping
-        |-- gmapping
-        |-- ...
-    |-- turtlebot
-        |-- turtlebot_teleop
-        |-- ...
-    |-- turtlebot_interactions
-        |-- turtlebot_rviz_launchers
-        |-- ...
-    |-- turtlebot_simulator
-        |-- turtlebot_gazebo
-        |-- ...
-    |-- add_markers
-        |-- src/add_markers.cpp
-        |-- ...
-    |-- Worlds
-        |-- ...
-    |-- pick_objects
-        |-- src/pick_objects.cpp
-        |-- ...
-    |-- ShellScripts
-        |-- ...
-    |-- wall_follower
-        |-- src/add_markers.cpp
-        |-- ...
-```
