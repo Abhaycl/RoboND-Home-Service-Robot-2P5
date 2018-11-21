@@ -45,6 +45,8 @@ Clone the required repositories to the `/home/workspace/catkin_ws/` folder
   git clone https://github.com/Abhaycl/RoboND-Home-Service-Robot-2P5.git src
 ```
 
+Once copied everything, it's important to give permissions, reading and/or execution to the files necessary for the proper functioning.
+
 Build the project:
 ```bash
   cd /home/workspace/catkin_ws
@@ -94,7 +96,7 @@ The summary of the files and folders within repo is provided in the table below:
 ---
 ## Execution of the different shellscripts
 
-For run the project open a terminal:
+For run launch.sh open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -104,10 +106,86 @@ For run the project open a terminal:
 ![alt text][image1]
 ![alt text][image2]
 
+---
 
-For run the project open a terminal:
+For create my world open a terminal:
+
+```bash
+  cd /home/workspace/catkin_ws/src/World
+  gazebo MyWorld.world
+```
+
+![alt text][image3]
+
+---
+
+For run test_slam.sh open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
-  ./launch.sh
+  ./test_slam.sh
 ```
+
+![alt text][image4]
+![alt text][image5]
+
+---
+
+For run wall_follower.sh open a terminal:
+
+```bash
+  cd /home/workspace/catkin_ws/src/ShellScripts
+  ./wall_follower.sh
+```
+
+![alt text][image6]
+![alt text][image7]
+
+---
+
+For run test_navigation.sh open a terminal:
+
+```bash
+  cd /home/workspace/catkin_ws/src/ShellScripts
+  ./test_navigation.sh
+```
+
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
+
+---
+
+For run pick_objects.sh open a terminal:
+
+```bash
+  cd /home/workspace/catkin_ws/src/ShellScripts
+  ./pick_objects.sh
+```
+
+![alt text][image11]
+![alt text][image12]
+
+---
+
+For run add_markers.sh open a terminal:
+
+```bash
+  cd /home/workspace/catkin_ws/src/ShellScripts
+  ./add_markers.sh
+```
+
+![alt text][image13]
+![alt text][image14]
+
+---
+
+For run the project home_service.sh open a terminal:
+
+```bash
+  cd /home/workspace/catkin_ws/src/ShellScripts
+  ./home_service.sh
+```
+
+![alt text][image15]
+![alt text][image16]
