@@ -142,7 +142,7 @@ The summary of the files and folders within repo is provided in the table below:
 | File/Folder              | Definition                                                                                                   |
 | :----------------------- | :----------------------------------------------------------------------------------------------------------- |
 | add_markers/*            | Folder that contains all the node that model the object with a marker in rviz.                               |
-| pick_objects/*           | Folder that contains all the node that commands your robot to drive to the pickup and drop off zones.        |
+| pick_objects/*           | Folder that contains all the node that commands your robot to drive to the pick-up and drop-off zones.       |
 | RvizConfig/*             | Folder that contains all the customized rviz configuration files.                                            |
 | ShellScripts/*           | Folder that contains all the shell scripts.                                                                  |
 | slam_gmapping/*          | Folder that contains all the files that perform SLAM and build a map of the environment with a robot equipped with laser range finder sensors or RGB-D cameras. |
