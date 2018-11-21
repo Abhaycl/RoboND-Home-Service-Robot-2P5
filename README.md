@@ -96,7 +96,7 @@ The summary of the files and folders within repo is provided in the table below:
 ---
 ## Execution of the different shellscripts
 
-For run launch.sh open a terminal:
+For run **launch.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -108,7 +108,7 @@ For run launch.sh open a terminal:
 
 ---
 
-For create my world open a terminal:
+For create **my world** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/World
@@ -119,7 +119,7 @@ For create my world open a terminal:
 
 ---
 
-For run test_slam.sh open a terminal:
+For run **test_slam.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -131,7 +131,7 @@ For run test_slam.sh open a terminal:
 
 ---
 
-For run wall_follower.sh open a terminal:
+For run **wall_follower.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -143,7 +143,7 @@ For run wall_follower.sh open a terminal:
 
 ---
 
-For run test_navigation.sh open a terminal:
+For run **test_navigation.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -156,7 +156,7 @@ For run test_navigation.sh open a terminal:
 
 ---
 
-For run pick_objects.sh open a terminal:
+For run **pick_objects.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -168,7 +168,7 @@ For run pick_objects.sh open a terminal:
 
 ---
 
-For run add_markers.sh open a terminal:
+For run **add_markers.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
@@ -180,7 +180,7 @@ For run add_markers.sh open a terminal:
 
 ---
 
-For run the project home_service.sh open a terminal:
+For run the project **home_service.sh** open a terminal:
 
 ```bash
   cd /home/workspace/catkin_ws/src/ShellScripts
