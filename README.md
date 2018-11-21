@@ -1,4 +1,4 @@
-# Deep RL Arm Manipulation Project Starter Code
+# Home Service Robot Project Starter Code
 
 The objective of this project is a full home service robot capable of navigating to pick up and deliver virtual objects.
 
