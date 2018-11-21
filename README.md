@@ -45,6 +45,21 @@ Clone the required repositories to the `/home/workspace/catkin_ws/` folder
   git clone https://github.com/Abhaycl/RoboND-Home-Service-Robot-2P5.git src
 ```
 
+Clone the required repositories to the ~/catkin_ws/src folder. Note that this repository already includes official ROS packages compatible with this repository: [gmapping](https://github.com/ros-perception/slam_gmapping), [turtlebot_teleop](http://wiki.ros.org/turtlebot_teleop), [turtlebot_rviz_launchers](https://github.com/turtlebot/turtlebot_interactions), and [turtlebot_gazebo](https://github.com/turtlebot/turtlebot_simulator). Their dependencies must be installed to succesfully use this repository.
+
+(Optional)
+- https://github.com/turtlebot/turtlebot_apps.git
+* This repository contains the turtlebot_navigation package which is a turtlebot dependency.
+* This will give you some room to tweak navigation and some SLAM behaviors.
+
+```bash
+cd ~/catkin_ws/src
+rosdep -i install gmapping -y
+rosdep -i install turtlebot_teleop -y
+rosdep -i install turtlebot_rviz_launchers -y
+rosdep -i install turtlebot_gazebo -y
+```
+
 Once copied everything, it's important to give permissions, reading and/or execution to the files necessary for the proper functioning.
 
 Build the project:
@@ -189,3 +204,36 @@ For run the project **home_service.sh** open a terminal:
 
 ![alt text][image15]
 ![alt text][image16]
+
+
+#### Catkin Workspace Structure
+Should look something like this:
+
+```
+catkin_ws/src
+    |-- slam_gmapping
+        |-- gmapping
+        |-- ...
+    |-- turtlebot
+        |-- turtlebot_teleop
+        |-- ...
+    |-- turtlebot_interactions
+        |-- turtlebot_rviz_launchers
+        |-- ...
+    |-- turtlebot_simulator
+        |-- turtlebot_gazebo
+        |-- ...
+    |-- add_markers
+        |-- src/add_markers.cpp
+        |-- ...
+    |-- Worlds
+        |-- ...
+    |-- pick_objects
+        |-- src/pick_objects.cpp
+        |-- ...
+    |-- ShellScripts
+        |-- ...
+    |-- wall_follower
+        |-- src/add_markers.cpp
+         |-- ...
+```
